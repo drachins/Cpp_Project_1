@@ -136,5 +136,5 @@ void RoutePlanner::AStarSearch() {
     }
     m_Model.path = ConstructFinalPath(current_node);
     
-
+    //something
 }
