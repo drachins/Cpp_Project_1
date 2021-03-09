@@ -70,50 +70,6 @@ RouteModel::Node *RoutePlanner::NextNode() {
     
     sort(open_list.begin(), open_list.end(), Compare);
     
-    /*std::vector<std::vector<float>> f_values;
-    float id = 0;
-    for(RouteModel::Node* nodes : open_list){
-        std::vector<float> f_node{nodes->g_value+nodes->h_value, id};
-        id++;
-        f_values.push_back(f_node);
-    }
-    
-    std::vector<std::vector<float>> f_values_sorted;
-    
-    float f_highest = f_values[f_values.size()-1][0];
-    float id_f = f_values.size()-1;
-    int id_fs = 0;
-    
-    while(f_values.size() > 0){
-        
-        for(int i = 0; i < f_values.size(); i++){
-            if(f_highest < f_values[i][0]){
-                f_highest = f_values[i][0];
-                id_f = f_values[i][1];
-                id_fs = i;
-                }
-            }
-        
-        
-        f_values_sorted.push_back({f_highest, id_f});
-        f_values.erase(f_values.begin()+id_fs);
-        
-        f_highest = f_values[f_values.size()-1][0];
-        id_f = f_values[f_values.size()-1][1];
-        
-    }
-    
-    std::vector<RouteModel::Node* > sorted_list;
-    
-    for(int i = 0; i < f_values_sorted.size(); i++){
-        for(int k = 0; k < open_list.size(); k++){
-            if((int)f_values_sorted[i][1] == k){
-                sorted_list.push_back(open_list[k]);
-            }
-        }
-    }
-    
-    open_list = sorted_list;*/
     
     RouteModel::Node* lowest_f = open_list[open_list.size()-1];
     open_list.pop_back();
